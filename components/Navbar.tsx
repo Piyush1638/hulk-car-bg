@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState} from "react";
+import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineClose } from "react-icons/md";
 import { Moon, Sun, X } from "lucide-react";
@@ -20,7 +20,9 @@ const Navbar = () => {
     <div
       className={cn(
         "w-full pe-2  mf:px-4 py-4 fixed top-0 z-50",
-        (pathname === "/dashboard" || pathname === "/faq") ? "dark:bg-[#141518] bg-[#FFFFFF]": "bg-primary dark:bg-dark-primary"
+        pathname === "/dashboard" || pathname === "/faq"
+          ? "dark:bg-[#141518] bg-[#FFFFFF]"
+          : "bg-primary dark:bg-dark-primary"
       )}
     >
       <div className="flex items-stretch justify-between gap-5 max-md:flex-wrap">
@@ -55,9 +57,33 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
+        <div className="xl:block hidden">
+          <div className="items-stretch flex justify-between gap-5 px-5 me-10">
+            <Link
+              href="/"
+              className={cn(
+                pathname === "/cardetail" || pathname === "/"
+                  ? "text-zinc-50 text-base font-semibold leading-6 whitespace-nowrap justify-center items-stretch bg-black dark:bg-transparent border border-[#424242] px-6 py-3 rounded-[51px] border-solid max-md:px-5"
+                  : "text-zinc-500 px-6 py-3 cursor-pointer text-base font-semibold leading-6 my-auto"
+              )}
+            >
+              Mint NFT
+            </Link>
+            <Link
+              href="/dashboard"
+              className={cn(
+                pathname === "/dashboard"
+                  ? "text-zinc-50 text-base font-semibold leading-6 whitespace-nowrap justify-center items-stretch bg-black dark:bg-transparent border border-[#424242] px-6 py-3 rounded-[51px] border-solid max-md:px-5"
+                  : "text-zinc-500 px-6 py-3 cursor-pointer text-base font-semibold leading-6 my-auto"
+              )}
+            >
+              Dashboard
+            </Link>
+          </div>
+        </div>
 
         <div className="mf:flex  hidden justify-between gap-5 self-start items-start max-md:max-w-full max-md:flex-wrap">
-          <div className="items-stretch flex justify-between gap-5 px-5 me-10">
+          <div className="items-stretch xl:hidden flex justify-between gap-5 px-5 me-10">
             <Link
               href="/"
               className={cn(
@@ -126,7 +152,7 @@ const Navbar = () => {
                   viewBox="0 0 21 20"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_66_7473)">
+                  <g clipPath="url(#clip0_66_7473)">
                     <path
                       d="M0.388672 0.624837V1.24984H1.67773H2.9668L3.02148 1.46077C3.04492 1.58577 3.62305 3.99984 4.29492 6.83577L5.52148 11.992L5.31836 12.117C4.74023 12.4842 4.45117 13.0311 4.45117 13.7655C4.45117 14.3436 4.63086 14.7733 5.00586 15.1326C5.55273 15.6483 5.20117 15.6248 12.1855 15.6248H18.5137V14.9998V14.3748H12.459C5.85742 14.3748 5.91992 14.3748 5.81055 13.953C5.78711 13.8436 5.78711 13.6561 5.81055 13.5467C5.91992 13.117 5.84961 13.1248 12.5918 13.1248H18.7949L19.498 7.82796L20.2012 2.5389L12.4199 2.51546L4.63867 2.49984L4.34961 1.24984L4.05273 -0.000163078H2.2168H0.388672V0.624837ZM8.82617 5.46859V7.18734L7.28711 7.17171L5.74023 7.14827L5.60742 6.56234C5.53711 6.24202 5.34961 5.4764 5.20898 4.85921L4.94336 3.74984H6.88086H8.82617V5.46859ZM14.1387 5.46859V7.18734H12.1074H10.0762V5.46859V3.74984H12.1074H14.1387V5.46859ZM18.6699 3.80452C18.6699 3.84359 18.5762 4.61702 18.459 5.52327L18.2402 7.18734H16.8184H15.3887V5.46859V3.74984H17.0293C17.9355 3.74984 18.6699 3.77327 18.6699 3.80452ZM8.82617 10.1561V11.8748H7.84961H6.88086L6.80273 11.578C6.63867 10.9608 6.0918 8.60921 6.0918 8.52327C6.0918 8.46077 6.48242 8.43734 7.45898 8.43734H8.82617V10.1561ZM14.1387 10.1561V11.8748H12.1074H10.0762V10.1561V8.43734H12.1074H14.1387V10.1561ZM18.0449 8.49202C18.0449 8.53109 17.9512 9.30452 17.834 10.2108L17.6152 11.8748H16.5059H15.3887V10.1561V8.43734H16.7168C17.4512 8.43734 18.0449 8.46077 18.0449 8.49202Z"
                       // fill="#868686"
@@ -213,7 +239,7 @@ const Navbar = () => {
                   viewBox="0 0 21 20"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_66_7473)">
+                  <g clipPath="url(#clip0_66_7473)">
                     <path
                       d="M0.388672 0.624837V1.24984H1.67773H2.9668L3.02148 1.46077C3.04492 1.58577 3.62305 3.99984 4.29492 6.83577L5.52148 11.992L5.31836 12.117C4.74023 12.4842 4.45117 13.0311 4.45117 13.7655C4.45117 14.3436 4.63086 14.7733 5.00586 15.1326C5.55273 15.6483 5.20117 15.6248 12.1855 15.6248H18.5137V14.9998V14.3748H12.459C5.85742 14.3748 5.91992 14.3748 5.81055 13.953C5.78711 13.8436 5.78711 13.6561 5.81055 13.5467C5.91992 13.117 5.84961 13.1248 12.5918 13.1248H18.7949L19.498 7.82796L20.2012 2.5389L12.4199 2.51546L4.63867 2.49984L4.34961 1.24984L4.05273 -0.000163078H2.2168H0.388672V0.624837ZM8.82617 5.46859V7.18734L7.28711 7.17171L5.74023 7.14827L5.60742 6.56234C5.53711 6.24202 5.34961 5.4764 5.20898 4.85921L4.94336 3.74984H6.88086H8.82617V5.46859ZM14.1387 5.46859V7.18734H12.1074H10.0762V5.46859V3.74984H12.1074H14.1387V5.46859ZM18.6699 3.80452C18.6699 3.84359 18.5762 4.61702 18.459 5.52327L18.2402 7.18734H16.8184H15.3887V5.46859V3.74984H17.0293C17.9355 3.74984 18.6699 3.77327 18.6699 3.80452ZM8.82617 10.1561V11.8748H7.84961H6.88086L6.80273 11.578C6.63867 10.9608 6.0918 8.60921 6.0918 8.52327C6.0918 8.46077 6.48242 8.43734 7.45898 8.43734H8.82617V10.1561ZM14.1387 10.1561V11.8748H12.1074H10.0762V10.1561V8.43734H12.1074H14.1387V10.1561ZM18.0449 8.49202C18.0449 8.53109 17.9512 9.30452 17.834 10.2108L17.6152 11.8748H16.5059H15.3887V10.1561V8.43734H16.7168C17.4512 8.43734 18.0449 8.46077 18.0449 8.49202Z"
                       className="dark:fill-[#C7C8CA] fill-black"
