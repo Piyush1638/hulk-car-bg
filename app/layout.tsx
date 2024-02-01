@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -43,7 +43,11 @@ const metadataWallet = {
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-export const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata: metadataWallet });
+export const wagmiConfig = defaultWagmiConfig({
+  chains,
+  projectId,
+  metadata: metadataWallet,
+});
 
 createWeb3Modal({ wagmiConfig, projectId, chains });
 
@@ -63,14 +67,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+      </head>
       <body className={inter.className}>
-        <WagmiConfig config={wagmiConfig} >
+        <WagmiConfig config={wagmiConfig}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-
           >
             <Navbar />
 
