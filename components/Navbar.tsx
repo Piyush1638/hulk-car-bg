@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState} from "react";
+import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineClose } from "react-icons/md";
 import { Moon, Sun, X } from "lucide-react";
@@ -20,7 +20,9 @@ const Navbar = () => {
     <div
       className={cn(
         "w-full pe-2  mf:px-4 py-4 fixed top-0 z-50",
-        (pathname === "/dashboard" || pathname === "/faq") ? "dark:bg-[#141518] bg-[#FFFFFF]": "bg-primary dark:bg-dark-primary"
+        pathname === "/dashboard" || pathname === "/faq"
+          ? "dark:bg-[#141518] bg-[#FFFFFF]"
+          : "bg-primary dark:bg-dark-primary"
       )}
     >
       <div className="flex items-stretch justify-between gap-5 max-md:flex-wrap">
@@ -55,9 +57,33 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
+        <div className="xl:block hidden">
+          <div className="items-stretch flex justify-between gap-5 px-5 me-10">
+            <Link
+              href="/"
+              className={cn(
+                pathname === "/cardetail" || pathname === "/"
+                  ? "text-zinc-50 text-base font-semibold leading-6 whitespace-nowrap justify-center items-stretch bg-black dark:bg-transparent border border-[#424242] px-6 py-3 rounded-[51px] border-solid max-md:px-5"
+                  : "text-zinc-500 px-6 py-3 cursor-pointer text-base font-semibold leading-6 my-auto"
+              )}
+            >
+              Mint NFT
+            </Link>
+            <Link
+              href="/dashboard"
+              className={cn(
+                pathname === "/dashboard"
+                  ? "text-zinc-50 text-base font-semibold leading-6 whitespace-nowrap justify-center items-stretch bg-black dark:bg-transparent border border-[#424242] px-6 py-3 rounded-[51px] border-solid max-md:px-5"
+                  : "text-zinc-500 px-6 py-3 cursor-pointer text-base font-semibold leading-6 my-auto"
+              )}
+            >
+              Dashboard
+            </Link>
+          </div>
+        </div>
 
         <div className="mf:flex  hidden justify-between gap-5 self-start items-start max-md:max-w-full max-md:flex-wrap">
-          <div className="items-stretch flex justify-between gap-5 px-5 me-10">
+          <div className="items-stretch xl:hidden flex justify-between gap-5 px-5 me-10">
             <Link
               href="/"
               className={cn(
